@@ -1,0 +1,7 @@
+# .gitignore (Root folder mein)
+# Dependencies folder
+/node_modules
+# Backend environment variables (Secrets)
+.env
+# Frontend environment variables (Next step mein use hoga)
+client/.env
