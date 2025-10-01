@@ -82,11 +82,11 @@ const { myName, myAge, myCity, myAgeDesignation } = myObj;
 
 // console.log(myName, myAge, myCity, myAgeDesignation);
 
-console.log("----- Spread Operator Examples -----");
+// console.log("----- Spread Operator Examples -----");
 // 1. Array Copying & Merging
 const arr1 = [1, 2];
 const arr2 = [...arr1, 3, 4]; // Copy arr1 and add 3, 4
-console.log(arr2); // Output: [1, 2, 3, 4]
+// console.log(arr2); // Output: [1, 2, 3, 4]
 
 // 2. Object Copying & Updating (VERY COMMON in Redux/React)
 const oldUser = { name: "Ali", age: 30, city: "Lahore" };
@@ -135,7 +135,7 @@ const finalProduct = {
   ...productDetails,
   totalPrice: calculateTotal(),
 };
-console.log(finalProduct);
+// console.log(finalProduct);
 
 function sum(a, b, c) {
   return a + b + c;
@@ -144,4 +144,47 @@ function sum(a, b, c) {
 // const numbersArray = [1, 2, 3, 6, 10];
 const numbersArray = [1, 2, 3];
 
-console.log(sum(...numbersArray));
+// console.log(sum(...numbersArray));
+
+console.log("OOP in JS");
+
+class Product {
+  constructor(name, price, quantity) {
+    this.name = name;
+    this.price = price;
+    this.quantity = quantity;
+  }
+
+  getDetails() {
+    return `Product: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`;
+  }
+}
+
+const mobile = new Product("Samsung S25 Ultra", "200", 4);
+console.log(mobile.getDetails());
+
+class DigitalProduct extends Product {
+  constructor(name, price, quantity, genre) {
+    super(name, price, quantity); // Parent class ka constructor call karo
+    this.genre = genre;
+  }
+
+  getDetails() {
+    const parentDetails = super.getDetails();
+    return `${parentDetails}, Genre: ${this.genre}`;
+  }
+}
+
+const eBook = new DigitalProduct(
+  "Atomic Habbits",
+  100,
+  500,
+  "Self Improvement"
+);
+
+console.log(eBook);
+
+import { User } from "./UserService.js";
+
+const myUser = new User("Arslan", "im@Arsalna.com");
+console.log(myUser.getGreeting());
